@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Handjet:wght@400&family=JetBrains+Mono&family=Tektur:wght@400&family=Tourney:wght@400&display=swap');
+
+.bebas {
+  font-family: 'Bebas Neue', system-ui;
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&family=Space+Grotesk:wght@500;700&family=Orbitron:wght@600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 260 89% 65%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+
+    --accent: 279 100% 70%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+
+    --radius: 0.5rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-black text-foreground min-h-screen;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  html {
+    @apply bg-black;
+  }
+
+  .glass-panel {
+    @apply backdrop-blur-lg bg-white/10 border border-white/20 rounded-xl;
+  }
+
+  .orb-shadow {
+    filter: drop-shadow(0 0 20px rgba(139, 92, 246, 0.3));
+  }
+}
+
+/* Custom cursor styles */
+* {
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewport='0 0 100 100'><circle cx='6' cy='6' r='6' fill='white' opacity='0.5'/></svg>") 6 6, auto !important;
+}
+
+.hero-text {
+  font-family: 'Handjet', sans-serif;
+  font-size: 50px;
+  color: white;
+}

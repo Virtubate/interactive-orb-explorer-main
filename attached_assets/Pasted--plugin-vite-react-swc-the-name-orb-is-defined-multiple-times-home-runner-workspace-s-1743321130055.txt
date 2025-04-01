@@ -1,0 +1,112 @@
+[plugin:vite:react-swc] × the name `orb` is defined multiple times
+     ╭─[/home/runner/workspace/src/components/OrbScene.tsx:56:1]
+  53 │       side: THREE.DoubleSide,
+  54 │       flatShading: true
+  55 │     });
+  56 │     const orb = new THREE.Mesh(geometry, material);
+     ·           ─┬─
+     ·            ╰── previous definition of `orb` here
+  57 │     scene.add(orb);
+  58 │     orbRef.current = orb;
+  59 │ 
+  60 │     // Register with transition manager
+  61 │     transitionManager.setCurrentState(scene, camera, orb);
+  62 │ 
+  63 │     // Add lighting
+  64 │     const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
+  65 │     scene.add(ambientLight);
+  66 │ 
+  67 │     const directionalLight1 = new THREE.DirectionalLight(0xffffff, 1);
+  68 │     directionalLight1.position.set(1, 1, 1);
+  69 │     scene.add(directionalLight1);
+  70 │ 
+  71 │     const directionalLight2 = new THREE.DirectionalLight(0x8a2be2, 0.5);
+  72 │     directionalLight2.position.set(-1, -1, -1);
+  73 │     scene.add(directionalLight2);
+  74 │ 
+  75 │     const pointLight1 = new THREE.PointLight(0x00ffff, 1, 10);
+  76 │     pointLight1.position.set(2, 2, 2);
+  77 │     scene.add(pointLight1);
+  78 │ 
+  79 │     const pointLight2 = new THREE.PointLight(0xff00ff, 1, 10);
+  80 │     pointLight2.position.set(-2, -2, -2);
+  81 │     scene.add(pointLight2);
+  82 │ 
+  83 │     // Create iridescent material for the orb
+  84 │     const sphereGeometry = new THREE.SphereGeometry(1.71, 64, 64);
+  85 │ 
+  86 │     // Create shader material for iridescent effect
+  87 │     const orbMaterial = new THREE.ShaderMaterial({
+  88 │       uniforms: {
+  89 │         time: { value: 0 },
+  90 │         resolution: { value: new THREE.Vector2(
+  91 │           containerRef.current.clientWidth, 
+  92 │           containerRef.current.clientHeight
+  93 │         )},
+  94 │       },
+  95 │       vertexShader: `
+  96 │         varying vec2 vUv;
+  97 │         varying vec3 vPosition;
+  98 │         varying vec3 vNormal;
+  99 │ 
+ 100 │         void main() {
+ 101 │           vUv = uv;
+ 102 │           vPosition = position;
+ 103 │           vNormal = normalize(normalMatrix * normal);
+ 104 │           gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+ 105 │         }
+ 106 │       `,
+ 107 │       fragmentShader: `
+ 108 │         uniform float time;
+ 109 │         uniform vec2 resolution;
+ 110 │         varying vec2 vUv;
+ 111 │         varying vec3 vPosition;
+ 112 │         varying vec3 vNormal;
+ 113 │ 
+ 114 │         vec3 palette(float t) {
+ 115 │           vec3 a = vec3(0.5, 0.5, 0.5);
+ 116 │           vec3 b = vec3(0.5, 0.5, 0.5);
+ 117 │           vec3 c = vec3(1.0, 1.0, 1.0);
+ 118 │           vec3 d = vec3(0.263, 0.416, 0.557);
+ 119 │ 
+ 120 │           return a + b * cos(6.28318 * (c * t + d));
+ 121 │         }
+ 122 │ 
+ 123 │         void main() {
+ 124 │           vec3 viewDir = normalize(cameraPosition - vPosition);
+ 125 │           float fresnel = pow(1.0 - dot(viewDir, vNormal), 1.5);
+ 126 │ 
+ 127 │           // Create flowing pattern
+ 128 │           float noise = sin(vUv.x * 10.0 + time * 0.5) * 
+ 129 │                         sin(vUv.y * 10.0 + time * 0.3) * 
+ 130 │                         sin(vPosition.z * 8.0 + time * 0.2);
+ 131 │ 
+ 132 │           // Mix different color patterns
+ 133 │           vec3 color1 = palette(vUv.x + vUv.y + time * 0.1);
+ 134 │           vec3 color2 = palette(noise + time * 0.2);
+ 135 │           vec3 finalColor = mix(color1, color2, 0.5 + 0.5 * sin(time * 0.2));
+ 136 │ 
+ 137 │           // Add iridescence
+ 138 │           finalColor = mix(
+ 139 │             finalColor,
+ 140 │             vec3(0.9, 0.8, 1.0),
+ 141 │             fresnel * 0.7
+ 142 │           );
+ 143 │ 
+ 144 │           // Add some transparency at the edges
+ 145 │           float alpha = mix(0.9, 1.0, fresnel);
+ 146 │ 
+ 147 │           gl_FragColor = vec4(finalColor, alpha);
+ 148 │         }
+ 149 │       `,
+ 150 │       transparent: true,
+ 151 │     });
+ 152 │ 
+ 153 │     // Create the orb
+ 154 │     const orb = new THREE.Mesh(sphereGeometry, orbMaterial);
+     ·           ─┬─
+     ·            ╰── `orb` redefined here
+ 155 │     scene.add(orb);
+ 156 │     orbRef.current = orb;
+     ╰────
+/home/runner/workspace/src/components/OrbScene.tsx:56:1

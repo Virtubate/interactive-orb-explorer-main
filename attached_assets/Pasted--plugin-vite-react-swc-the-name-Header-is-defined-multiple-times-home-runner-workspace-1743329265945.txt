@@ -1,0 +1,136 @@
+[plugin:vite:react-swc] × the name `Header` is defined multiple times
+    ╭─[/home/runner/workspace/src/pages/Services.tsx:2:1]
+  1 │ 
+  2 │ import { Header } from "@/components/Header";
+    ·          ───┬──
+    ·             ╰── previous definition of `Header` here
+  3 │ import React from "react";
+  4 │ 
+  5 │ import Footer from '@/components/Footer';
+  6 │ 
+  7 │ const Services = () => {
+  8 │   return (
+  9 │     <div className="min-h-screen bg-black text-white">
+ 10 │       <Header />
+ 11 │       <div className="pt-32">
+ 12 │         {/* Add your services content here */}
+ 13 │       </div>
+ 14 │       <Footer />
+ 15 │     </div>
+ 16 │   );
+ 17 │ };
+ 18 │ 
+ 19 │ export default Services;
+ 20 │ import Header from "@/components/Header";
+    ·        ───┬──
+    ·           ╰── `Header` redefined here
+ 21 │ import Footer from "@/components/Footer";
+ 22 │ import { ParticleGlobe } from "../../Globe_particle/ParticleGlobe";
+    ╰────
+  × the name `Footer` is defined multiple times
+    ╭─[/home/runner/workspace/src/pages/Services.tsx:5:1]
+  2 │ import { Header } from "@/components/Header";
+  3 │ import React from "react";
+  4 │ 
+  5 │ import Footer from '@/components/Footer';
+    ·        ───┬──
+    ·           ╰── previous definition of `Footer` here
+  6 │ 
+  7 │ const Services = () => {
+  8 │   return (
+  9 │     <div className="min-h-screen bg-black text-white">
+ 10 │       <Header />
+ 11 │       <div className="pt-32">
+ 12 │         {/* Add your services content here */}
+ 13 │       </div>
+ 14 │       <Footer />
+ 15 │     </div>
+ 16 │   );
+ 17 │ };
+ 18 │ 
+ 19 │ export default Services;
+ 20 │ import Header from "@/components/Header";
+ 21 │ import Footer from "@/components/Footer";
+    ·        ───┬──
+    ·           ╰── `Footer` redefined here
+ 22 │ import { ParticleGlobe } from "../../Globe_particle/ParticleGlobe";
+ 23 │ 
+ 24 │ const Services = () => {
+    ╰────
+  × the name `Services` is defined multiple times
+    ╭─[/home/runner/workspace/src/pages/Services.tsx:7:1]
+  4 │ 
+  5 │ import Footer from '@/components/Footer';
+  6 │ 
+  7 │ const Services = () => {
+    ·       ────┬───
+    ·           ╰── previous definition of `Services` here
+  8 │   return (
+  9 │     <div className="min-h-screen bg-black text-white">
+ 10 │       <Header />
+ 11 │       <div className="pt-32">
+ 12 │         {/* Add your services content here */}
+ 13 │       </div>
+ 14 │       <Footer />
+ 15 │     </div>
+ 16 │   );
+ 17 │ };
+ 18 │ 
+ 19 │ export default Services;
+ 20 │ import Header from "@/components/Header";
+ 21 │ import Footer from "@/components/Footer";
+ 22 │ import { ParticleGlobe } from "../../Globe_particle/ParticleGlobe";
+ 23 │ 
+ 24 │ const Services = () => {
+    ·       ────┬───
+    ·           ╰── `Services` redefined here
+ 25 │   return (
+ 26 │     <div className="relative w-full min-h-screen bg-black overflow-hidden">
+ 27 │       <div className="absolute inset-0 flex items-center">
+    ╰────
+  × the name `default` is exported multiple times
+    ╭─[/home/runner/workspace/src/pages/Services.tsx:19:1]
+ 16 │   );
+ 17 │ };
+ 18 │ 
+ 19 │ export default Services;
+    · ────────────┬───────────
+    ·             ╰── previous exported here
+ 20 │ import Header from "@/components/Header";
+ 21 │ import Footer from "@/components/Footer";
+ 22 │ import { ParticleGlobe } from "../../Globe_particle/ParticleGlobe";
+ 23 │ 
+ 24 │ const Services = () => {
+ 25 │   return (
+ 26 │     <div className="relative w-full min-h-screen bg-black overflow-hidden">
+ 27 │       <div className="absolute inset-0 flex items-center">
+ 28 │         <div className="w-[1380px] h-[1380px] -ml-[690px]">
+ 29 │           <ParticleGlobe />
+ 30 │         </div>
+ 31 │       </div>
+ 32 │ 
+ 33 │       {/* Content */}
+ 34 │       <div className="relative z-10 w-full min-h-screen mx-auto flex flex-col">
+ 35 │         <Header />
+ 36 │         <main className="flex-grow flex items-center justify-center">
+ 37 │           <div className="max-w-4xl w-full px-4">
+ 38 │             {/* Services content here */}
+ 39 │           </div>
+ 40 │         </main>
+ 41 │         <Footer />
+ 42 │       </div>
+ 43 │     </div>
+ 44 │   );
+ 45 │ };
+ 46 │ 
+ 47 │ export default Services;
+    · ────────────┬───────────
+    ·             ╰── exported more than once
+    ╰────
+
+Advice:   ☞ Exported identifiers must be unique
+/home/runner/workspace/src/pages/Services.tsx:2:1
+1  |  
+2  |  import { Header } from "@/components/Header";
+   |            ^
+3  |  import React from "react";

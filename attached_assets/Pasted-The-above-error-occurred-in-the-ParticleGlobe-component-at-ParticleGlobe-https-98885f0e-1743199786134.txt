@@ -1,0 +1,44 @@
+The above error occurred in the <ParticleGlobe> component:
+
+    at ParticleGlobe (https://98885f0e-1f1e-4162-a9d5-a68c8018a88c-00-1mtmh1o44afi1.janeway.replit.dev/Globe_particle/ParticleGlobe.tsx?t=1743199750942:15:26)
+    at div
+    at div
+    at div
+    at Projects
+    at RenderedRoute (https://98885f0e-1f1e-4162-a9d5-a68c8018a88c-00-1mtmh1o44afi1.janeway.replit.dev/node_modules/.vite/deps/react-router-dom.js?v=d0289a8f:4069:5)
+    at Routes (https://98885f0e-1f1e-4162-a9d5-a68c8018a88c-00-1mtmh1o44afi1.janeway.replit.dev/node_modules/.vite/deps/react-router-dom.js?v=d0289a8f:4508:5)
+    at Suspense
+    at Router (https://98885f0e-1f1e-4162-a9d5-a68c8018a88c-00-1mtmh1o44afi1.janeway.replit.dev/node_modules/.vite/deps/react-router-dom.js?v=d0289a8f:4451:15)
+    at BrowserRouter (https://98885f0e-1f1e-4162-a9d5-a68c8018a88c-00-1mtmh1o44afi1.janeway.replit.dev/node_modules/.vite/deps/react-router-dom.js?v=d0289a8f:5196:5)
+    at Provider (https://98885f0e-1f1e-4162-a9d5-a68c8018a88c-00-1mtmh1o44afi1.janeway.replit.dev/node_modules/.vite/deps/chunk-XBKWCVRK.js?v=d0289a8f:130:15)
+    at TooltipProvider (https://98885f0e-1f1e-4162-a9d5-a68c8018a88c-00-1mtmh1o44afi1.janeway.replit.dev/node_modules/.vite/deps/@radix-ui_react-tooltip.js?v=d0289a8f:2291:5)
+    at LazyMotion (https://98885f0e-1f1e-4162-a9d5-a68c8018a88c-00-1mtmh1o44afi1.janeway.replit.dev/node_modules/.vite/deps/framer-motion.js?v=d0289a8f:7261:23)
+    at QueryClientProvider (https://98885f0e-1f1e-4162-a9d5-a68c8018a88c-00-1mtmh1o44afi1.janeway.replit.dev/node_modules/.vite/deps/@tanstack_react-query.js?v=d0289a8f:2794:3)
+    at App
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries.
+
+at ParticleGlobe (https://98885f0e-1f1e-4162-a9d5-a68c8018a88c-00-1mtmh1o44afi1.janeway.replit.dev/Globe_particle/ParticleGlobe.tsx?t=1743199750942:15:26)
+at div
+at div
+at div
+at Projects
+at RenderedRoute (https://98885f0e-1f1e-4162-a9d5-a68c8018a88c-00-1mtmh1o44afi1.janeway.replit.dev/node_modules/.vite/deps/react-router-dom.js?v=d0289a8f:4069:5)
+at Routes (https://98885f0e-1f1e-4162-a9d5-a68c8018a88c-00-1mtmh1o44afi1.janeway.replit.dev/node_modules/.vite/deps/react-router-dom.js?v=d0289a8f:4508:5)
+at Suspense
+at Router (https://98885f0e-1f1e-4162-a9d5-a68c8018a88c-00-1mtmh1o44afi1.janeway.replit.dev/node_modules/.vite/deps/react-router-dom.js?v=d0289a8f:4451:15)
+at BrowserRouter (https://98885f0e-1f1e-4162-a9d5-a68c8018a88c-00-1mtmh1o44afi1.janeway.replit.dev/node_modules/.vite/deps/react-router-dom.js?v=d0289a8f:5196:5)
+at Provider (https://98885f0e-1f1e-4162-a9d5-a68c8018a88c-00-1mtmh1o44afi1.janeway.replit.dev/node_modules/.vite/deps/chunk-XBKWCVRK.js?v=d0289a8f:130:15)
+at TooltipProvider (https://98885f0e-1f1e-4162-a9d5-a68c8018a88c-00-1mtmh1o44afi1.janeway.replit.dev/node_modules/.vite/deps/@radix-ui_react-tooltip.js?v=d0289a8f:2291:5)
+at LazyMotion (https://98885f0e-1f1e-4162-a9d5-a68c8018a88c-00-1mtmh1o44afi1.janeway.replit.dev/node_modules/.vite/deps/framer-motion.js?v=d0289a8f:7261:23)
+at QueryClientProvider (https://98885f0e-1f1e-4162-a9d5-a68c8018a88c-00-1mtmh1o44afi1.janeway.replit.dev/node_modules/.vite/deps/@tanstack_react-query.js?v=d0289a8f:2794:3)
+at App
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries.
+at t.value (https://98885f0e-1f1e-4162-a9d5-a68c8018a88c-00-1mtmh1o44afi1.janeway.replit.dev/__replco/static/devtools/eruda/3.2.3/eruda.js:2:17465)
+at new t (https://98885f0e-1f1e-4162-a9d5-a68c8018a88c-00-1mtmh1o44afi1.janeway.replit.dev/__replco/static/devtools/eruda/3.2.3/eruda.js:2:12630)
+at t.value (https://98885f0e-1f1e-4162-a9d5-a68c8018a88c-00-1mtmh1o44afi1.janeway.replit.dev/__replco/static/devtools/eruda/3.2.3/eruda.js:2:32766)
+at https://98885f0e-1f1e-4162-a9d5-a68c8018a88c-00-1mtmh1o44afi1.janeway.replit.dev/__replco/static/devtools/eruda/3.2.3/eruda.js:2:34400
+outerRadius is not defined

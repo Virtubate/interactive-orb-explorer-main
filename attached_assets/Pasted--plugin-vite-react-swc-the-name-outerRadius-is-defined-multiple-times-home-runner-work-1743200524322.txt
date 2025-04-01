@@ -1,0 +1,56 @@
+[plugin:vite:react-swc] × the name `outerRadius` is defined multiple times
+    ╭─[/home/runner/workspace/Globe_particle/ParticleGlobe.tsx:26:1]
+ 23 │     camera.position.z = 2;
+ 24 │ 
+ 25 │     // Define radii
+ 26 │     const outerRadius = 1;
+    ·           ─────┬─────
+    ·                ╰── previous definition of `outerRadius` here
+ 27 │     const innerRadius = outerRadius * 0.95; // Inner globe at 95% of outer radius
+ 28 │     const particles: number[] = [];
+ 29 │ 
+ 30 │     // Add internal noise particles
+ 31 │     const internalParticlesCount = 15000;
+ 32 │     for(let i = 0; i < internalParticlesCount; i++) {
+ 33 │       const theta = Math.random() * Math.PI * 2;
+ 34 │       const phi = Math.random() * Math.PI * 2;
+ 35 │ 
+ 36 │       const minR = 0.05;
+ 37 │       const maxR = 0.85;
+ 38 │       let r = outerRadius * (minR + Math.pow(Math.random(), 3) * (maxR - minR));
+ 39 │ 
+ 40 │       const offset = Math.random() * 0.1;
+ 41 │       r += (Math.random() > 0.5 ? offset : -offset);
+ 42 │ 
+ 43 │       const x = r * Math.cos(phi) * Math.sin(theta);
+ 44 │       const y = r * Math.cos(theta);
+ 45 │       const z = r * Math.sin(phi) * Math.sin(theta);
+ 46 │ 
+ 47 │       particles.push(x, y, z);
+ 48 │     }
+ 49 │ 
+ 50 │     // Add particles for inner globe (90-97% radius)
+ 51 │     const innerNoiseCount = 12000; // Increased density of particles
+ 52 │     for(let i = 0; i < innerNoiseCount; i++) {
+ 53 │       const theta = Math.random() * Math.PI * 2;
+ 54 │       const phi = Math.random() * Math.PI * 2;
+ 55 │       // Random radius between 90% and 97% of outer radius
+ 56 │       const r = outerRadius * (0.90 + Math.random() * 0.07);
+ 57 │ 
+ 58 │       const x = r * Math.cos(phi) * Math.sin(theta);
+ 59 │       const y = r * Math.cos(theta);
+ 60 │       const z = r * Math.sin(phi) * Math.sin(theta);
+ 61 │ 
+ 62 │       particles.push(x, y, z);
+ 63 │     }
+ 64 │ 
+ 65 │     // Add outer rotating noise particles
+ 66 │     const outerNoiseCount = 2000;
+ 67 │     const outerRadius = 1.4; // Radius for outer particles
+    ·           ─────┬─────
+    ·                ╰── `outerRadius` redefined here
+ 68 │     for(let i = 0; i < outerNoiseCount; i++) {
+ 69 │       const angle = (i / outerNoiseCount) * Math.PI * 2;
+ 70 │       const spiralOffset = (Math.random() - 0.5) * 0.2;
+    ╰────
+/home/runner/workspace/Globe_particle/ParticleGlobe.tsx:26:1

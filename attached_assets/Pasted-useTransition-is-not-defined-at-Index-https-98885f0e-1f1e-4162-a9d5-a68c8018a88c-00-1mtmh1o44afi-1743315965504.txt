@@ -1,0 +1,28 @@
+useTransition is not defined
+at Index (https://98885f0e-1f1e-4162-a9d5-a68c8018a88c-00-1mtmh1o44afi1.janeway.replit.dev/src/pages/Index.tsx?t=1743315919158:19:50)
+at renderWithHooks (https://98885f0e-1f1e-4162-a9d5-a68c8018a88c-00-1mtmh1o44afi1.janeway.replit.dev/node_modules/.vite/deps/chunk-FJ2A54M7.js?v=7f669c62:11548:26)
+at mountIndeterminateComponent (https://98885f0e-1f1e-4162-a9d5-a68c8018a88c-00-1mtmh1o44afi1.janeway.replit.dev/node_modules/.vite/deps/chunk-FJ2A54M7.js?v=7f669c62:14926:21)
+at beginWork (https://98885f0e-1f1e-4162-a9d5-a68c8018a88c-00-1mtmh1o44afi1.janeway.replit.dev/node_modules/.vite/deps/chunk-FJ2A54M7.js?v=7f669c62:15914:22)
+at HTMLUnknownElement.callCallback2 (https://98885f0e-1f1e-4162-a9d5-a68c8018a88c-00-1mtmh1o44afi1.janeway.replit.dev/node_modules/.vite/deps/chunk-FJ2A54M7.js?v=7f669c62:3674:22)
+at Object.invokeGuardedCallbackDev (https://98885f0e-1f1e-4162-a9d5-a68c8018a88c-00-1mtmh1o44afi1.janeway.replit.dev/node_modules/.vite/deps/chunk-FJ2A54M7.js?v=7f669c62:3699:24)
+at invokeGuardedCallback (https://98885f0e-1f1e-4162-a9d5-a68c8018a88c-00-1mtmh1o44afi1.janeway.replit.dev/node_modules/.vite/deps/chunk-FJ2A54M7.js?v=7f669c62:3733:39)
+at beginWork$1 (https://98885f0e-1f1e-4162-a9d5-a68c8018a88c-00-1mtmh1o44afi1.janeway.replit.dev/node_modules/.vite/deps/chunk-FJ2A54M7.js?v=7f669c62:19765:15)
+at performUnitOfWork (https://98885f0e-1f1e-4162-a9d5-a68c8018a88c-00-1mtmh1o44afi1.janeway.replit.dev/node_modules/.vite/deps/chunk-FJ2A54M7.js?v=7f669c62:19198:20)
+at workLoopSync (https://98885f0e-1f1e-4162-a9d5-a68c8018a88c-00-1mtmh1o44afi1.janeway.replit.dev/node_modules/.vite/deps/chunk-FJ2A54M7.js?v=7f669c62:19137:13)
+useTransition is not defined
+The above error occurred in the <Index> component:
+
+    at Index (https://98885f0e-1f1e-4162-a9d5-a68c8018a88c-00-1mtmh1o44afi1.janeway.replit.dev/src/pages/Index.tsx?t=1743315919158:18:37)
+    at RenderedRoute (https://98885f0e-1f1e-4162-a9d5-a68c8018a88c-00-1mtmh1o44afi1.janeway.replit.dev/node_modules/.vite/deps/react-router-dom.js?v=5502c59c:4069:5)
+    at Routes (https://98885f0e-1f1e-4162-a9d5-a68c8018a88c-00-1mtmh1o44afi1.janeway.replit.dev/node_modules/.vite/deps/react-router-dom.js?v=5502c59c:4508:5)
+    at Suspense
+    at Router (https://98885f0e-1f1e-4162-a9d5-a68c8018a88c-00-1mtmh1o44afi1.janeway.replit.dev/node_modules/.vite/deps/react-router-dom.js?v=5502c59c:4451:15)
+    at BrowserRouter (https://98885f0e-1f1e-4162-a9d5-a68c8018a88c-00-1mtmh1o44afi1.janeway.replit.dev/node_modules/.vite/deps/react-router-dom.js?v=5502c59c:5196:5)
+    at Provider (https://98885f0e-1f1e-4162-a9d5-a68c8018a88c-00-1mtmh1o44afi1.janeway.replit.dev/node_modules/.vite/deps/chunk-J2Q5LCOX.js?v=7f669c62:130:15)
+    at TooltipProvider (https://98885f0e-1f1e-4162-a9d5-a68c8018a88c-00-1mtmh1o44afi1.janeway.replit.dev/node_modules/.vite/deps/@radix-ui_react-tooltip.js?v=10478da1:2291:5)
+    at LazyMotion (https://98885f0e-1f1e-4162-a9d5-a68c8018a88c-00-1mtmh1o44afi1.janeway.replit.dev/node_modules/.vite/deps/framer-motion.js?v=cacbeedd:7261:23)
+    at QueryClientProvider (https://98885f0e-1f1e-4162-a9d5-a68c8018a88c-00-1mtmh1o44afi1.janeway.replit.dev/node_modules/.vite/deps/@tanstack_react-query.js?v=120abe28:2794:3)
+    at App
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries.

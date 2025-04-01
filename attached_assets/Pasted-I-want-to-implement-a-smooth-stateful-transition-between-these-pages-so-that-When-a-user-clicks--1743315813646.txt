@@ -1,0 +1,35 @@
+I want to implement a smooth, stateful transition between these pages, so that:
+
+When a user clicks the "Projects" link on the Home page, the orb animation transitions into the globe particle animation.
+When a user clicks the "Home" link on the Projects page, the globe animation transitions back into the orb animation.
+The main goals are:
+
+Preserve the Three.js WebGL context and current animation state. The transition must not cause a full page reload.
+Allow a smooth visual effect between the two different animations (using either a morphing technique or a cross-fade effect).
+You can use additional libraries if necessary. I recommend:
+
+GSAP (GreenSock Animation Platform): For advanced tweening and animation interpolation.
+Barba.js or Swup: For managing smooth page transitions if a client-side router is required.
+Requirements:
+
+Intercept Navigation:
+Modify the click event on the navigation links so that the transition is initiated first.
+Prevent the default behavior to avoid an immediate page change.
+
+Transition Options:
+Morphing Approach:
+Capture the current state of the orb (geometry, material parameters, etc.) and tween these values to match those of the globe. Use GSAP for smooth interpolation.
+
+State Preservation: 
+Save any key parameters such as camera positions, light settings, and particle states before initiating the transition.
+Pass these states to the target animation so that the transition appears seamless.
+
+Implementation Details:
+If using GSAP, include instructions for installing it (via npm or a CDN) and importing it in the project.
+If using a page transition library (Barba.js or Swup), include installation and basic setup instructions.
+Include detailed comments in the code to explain:
+How the navigation event is intercepted.
+How the transition is initiated and how the state is captured.
+How the morphing or cross-fade effect is implemented using Three.js and GSAP.
+How the target animation is activated once the transition completes.
+Any error handling or fallback if the transition fails.

@@ -1,0 +1,30 @@
+I need to add a smooth, stateful morphing transition so that when a user clicks the "Projects" link on the Home page, the orb animation morphs into the globe animation. Similarly, when the user clicks "Home" from the Projects page, the globe morphs back into the orb.
+
+Please modify the current code to implement this transition, with the following requirements:
+
+1. Navigation Interception:
+   - Intercept the "Projects" and "Home" link click events.
+   - Prevent a full page reload so that the current Three.js WebGL context and animation state are preserved.
+
+2. Transition Animation – Morphing Approach Only:
+   - Implement a morphing transition by tweening the properties of the orb animation into those of the globe animation.
+   - Use GSAP (GreenSock Animation Platform) for smooth tweening.
+   - Tween properties such as geometry vertices, material parameters, and any other visual attributes that define the orb and globe.
+   - Ensure the tween runs for a fixed duration (e.g., 1-2 seconds) and uses requestAnimationFrame for smooth updates.
+
+3. State Preservation:
+   - Capture any essential animation state (camera position, lighting, particle states, etc.) before initiating the transition.
+   - Use a lightweight state management approach (e.g., a simple JavaScript object) if needed, to store these parameters and apply them to the target animation.
+
+4. Library Integration:
+   - Integrate GSAP into the project (via npm or CDN), and include any necessary installation or import instructions.
+   - No cross-fade or dual canvas/scene approach is required—focus solely on morphing the orb's properties into the globe's.
+
+5. Code Integration and Comments:
+   - Modify the existing code without rewriting the whole website.
+   - Include detailed inline comments explaining:
+     - How the navigation events are intercepted.
+     - How the animation state is captured.
+     - How GSAP is used to interpolate the orb's properties into those of the globe.
+     - How the new page content is swapped in after the morph transition.
+     - How fallback behavior is handled if the transition fails.
