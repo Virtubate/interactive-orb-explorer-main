@@ -17,12 +17,11 @@ const ServicesHeader: React.FC = () => {
   };
 
   return (
-    <header className="w-full text-white py-6 px-12 flex items-center fixed top-0 z-50 gap-16 bg-transparent">
-      {/* Section 1 - Name */}
+    <header className="w-full text-white py-6 px-12 flex items-center fixed top-0 z-50 bg-transparent">
+      {/* Section 1 - Name (consistent left padding) */}
       <div className="flex-1 max-w-[180px]">
         <Link to="/" onClick={handleHomeClick} className="text-xl font-mono">
-          <div 
-            className="bebas"
+          <div className="bebas"
             style={{
               fontSize: '16px',
               lineHeight: '19px',
@@ -38,30 +37,33 @@ const ServicesHeader: React.FC = () => {
         </Link>
       </div>
 
-      {/* Section 2 - Contact */}
-      <div className="flex-1 max-w-[200px] flex justify-center items-start">
-        <div className="flex flex-col">
-          <div style={{ fontFamily: 'JetBrains Mono, monospace' }} className="text-xs text-gray-400">
-            Get in touch
-          </div>
-          <a href="mailto:rmuth004@ucr.edu" style={{
-            WebkitFontSmoothing: 'antialiased',
-            fontFamily: 'JetBrains Mono, monospace',
-            fontSize: '14px',
-            lineHeight: '17px',
-            letterSpacing: '0.08em',
-            color: 'white',
-            textDecoration: 'underline',
-            textTransform: 'lowercase'
-          }}>
-            rmuth004@ucr.edu
-          </a>
+      {/* Section 2 - Contact (Hidden in mobile) */}
+      <div className="hidden sm:flex flex-col">
+        <div style={{ fontFamily: 'JetBrains Mono, monospace' }} className="text-xs text-gray-400">
+          Get in touch
         </div>
+        <a href="mailto:rmuth004@ucr.edu" style={{
+          WebkitFontSmoothing: 'antialiased',
+          fontFamily: 'JetBrains Mono, monospace',
+          fontSize: '14px',
+          lineHeight: '17px',
+          letterSpacing: '0.08em',
+          color: 'white',
+          textDecoration: 'underline',
+          textTransform: 'lowercase'
+        }}>
+          rmuth004@ucr.edu
+        </a>
       </div>
 
-      <div className="flex-1 flex justify-end items-start gap-16 mr-24">
-        {/* Navigation */}
-        <nav className="text-center text-xs leading-5" style={{ fontFamily: 'JetBrains Mono, monospace' }}>
+      {/* Section 3 - Navigation */}
+      <div className="flex-1 flex justify-end">
+        <nav className="text-center text-xs leading-5 
+                        mr-6              // Mobile right margin (24px)
+                        sm:mr-24          // Web right margin (96px)
+                        " 
+             style={{ fontFamily: 'JetBrains Mono, monospace' }}
+        >
           <Link 
             to="/" 
             onClick={handleHomeClick}

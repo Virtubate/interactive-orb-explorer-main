@@ -268,12 +268,11 @@ const ParticleGlobe: React.FC = () => {
     let frame = 0;
     const animate = () => {
       requestAnimationFrame(animate);
-      frame += 0.0014; // Reduced by 30% from 0.002
+      frame += 0.0014;
 
-      // Rotate all systems
       [surfaceSystem, innerNoiseSystem, outerNoiseSystem, innerOuterNoiseSystem, coreSystem, wrapperSystem].forEach(system => {
-        system.rotation.y = frame * 0.35; // Reduced by 30% from 0.5
-        system.rotation.x = Math.sin(frame) * 0.07; // Reduced by 30% from 0.1
+        system.rotation.y = window.innerWidth < 640 ? frame * -0.35 : frame * 0.35;
+        system.rotation.x = Math.sin(frame) * 0.07;
       });
 
       pointLight.intensity = 2 + Math.sin(frame * 2) * 0.5;

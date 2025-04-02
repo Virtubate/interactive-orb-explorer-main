@@ -6,18 +6,13 @@ const ProjectsHeader: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const handleServicesClick = async (e: React.MouseEvent) => {
-    e.preventDefault();
-    navigate('/services', { state: { isInternalNavigation: true } });
-  };
-
   const handleHomeClick = async (e: React.MouseEvent) => {
     e.preventDefault();
     navigate('/', { state: { isInternalNavigation: true } });
   };
 
   return (
-    <header className="w-full text-white py-6 px-12 flex items-center bg-transparent">
+    <header className="w-full text-white py-6 px-12 flex items-center fixed top-0 z-50 bg-transparent">
       {/* Section 1 - Name */}
       <div className="flex-1 max-w-[180px]">
         <Link to="/" onClick={handleHomeClick} className="text-xl font-mono">
@@ -39,26 +34,30 @@ const ProjectsHeader: React.FC = () => {
       </div>
 
       {/* Section 2 - Navigation */}
-      <div className="flex-1 flex justify-end mr-24">
-        <nav className="text-center text-xs leading-5" style={{ fontFamily: 'JetBrains Mono, monospace' }}>
-          <Link
-            to="/"
+      <div className="flex-1 flex justify-end">
+        <nav className="text-center text-xs leading-5 
+                      mr-6              // Mobile right margin
+                      sm:mr-24          // Web right margin
+                      " 
+            style={{ fontFamily: 'JetBrains Mono, monospace' }}
+        >
+          <Link 
+            to="/" 
             onClick={handleHomeClick}
             className={`flex items-center ${location.pathname === '/' ? 'text-white' : 'text-gray-500 hover:text-white'}`}
           >
             Home
             <span className={`inline-block ml-1 text-orange-500 ${location.pathname === '/' ? 'opacity-100' : 'opacity-0'}`}>:</span>
           </Link>
-          <Link
+          <Link 
             to="/projects"
             className={`flex items-center mt-1 ${location.pathname === '/projects' ? 'text-white' : 'text-gray-500 hover:text-white'}`}
           >
             Projects
             <span className={`inline-block ml-1 text-orange-500 ${location.pathname === '/projects' ? 'opacity-100' : 'opacity-0'}`}>:</span>
           </Link>
-          <Link
+          <Link 
             to="/services"
-            onClick={handleServicesClick}
             className={`flex items-center mt-1 ${location.pathname === '/services' ? 'text-white' : 'text-gray-500 hover:text-white'}`}
           >
             Services
