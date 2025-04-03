@@ -12,7 +12,7 @@ const ProjectsHeader: React.FC = () => {
   };
 
   return (
-    <header className="w-full text-white py-6 px-12 flex items-center fixed top-0 z-50 bg-transparent">
+    <header className="w-full text-white py-6 px-12 flex items-center bg-transparent">
       {/* Section 1 - Name */}
       <div className="flex-1 max-w-[180px]">
         <Link to="/" onClick={handleHomeClick} className="text-xl font-mono">

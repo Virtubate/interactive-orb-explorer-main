@@ -67,17 +67,15 @@ const Projects = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 w-full min-h-screen mx-auto flex flex-col">
+      <div className="relative z-10 w-full min-h-screen">
         <ProjectsHeader />
-        <main className="flex-grow overflow-y-auto projects-scrollbar">
-          <div className="w-full mx-auto 
-                        px-5 sm:px-8 md:px-12 
-                        max-w-[100%] sm:max-w-[90%] md:max-w-[1800px]">
+        <main>
+          <div className="w-full mx-auto px-5 sm:px-8 md:px-12 max-w-[100%] sm:max-w-[90%] md:max-w-[1800px]">
             {/* Featured Portfolio Section */}
             <div className="grid 
                           grid-cols-1 sm:grid-cols-[400px,1fr] 
                           gap-4 sm:gap-6 md:gap-8 
-                          mt-[160px] sm:mt-[180px] md:mt-[180px]">
+                          mt-[60px] sm:mt-[80px] md:mt-[80px]">
               {/* Left Column - Text Content */}
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
@@ -85,7 +83,7 @@ const Projects = () => {
                 transition={{ duration: 0.6, delay: 1.2 }}
                 className="relative"
               >
-                <div className="sticky top-[7px] pr-0 sm:pr-4">
+                <div className="pr-0 sm:pr-4">
                   <h1 className="font-['JetBrains_Mono'] font-medium 
                                text-[14px] sm:text-[14px] 
                                text-white mb-4 sm:mb-6">
@@ -160,7 +158,7 @@ const Projects = () => {
                 transition={{ duration: 0.6, delay: 1.7 }}
                 className="relative"
               >
-                <div className="sticky top-[7px] pr-0 sm:pr-4">
+                <div className="pr-0 sm:pr-4">
                   <h1 className="font-['JetBrains_Mono'] font-medium 
                                text-[14px] sm:text-[14px] 
                                text-white mb-4 sm:mb-6">
@@ -238,58 +236,15 @@ const Projects = () => {
 
       <style>
         {`
-          html {
-            scroll-behavior: smooth;
-            scroll-padding: 0;
-            scroll-timeline: smooth;
+          /* Hide scrollbar completely */
+          * {
+            -ms-overflow-style: none !important;
+            scrollbar-width: none !important;
           }
           
-          .projects-scrollbar {
-            scrollbar-width: thin;
-            scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
-            scroll-behavior: smooth;
-            scroll-timeline: smooth;
-            -webkit-overflow-scrolling: touch;
-            transition: all 3s cubic-bezier(0.34, 1.56, 0.64, 1);
-          }
-          
-          .projects-scrollbar::-webkit-scrollbar {
-            width: 6px;
-          }
-          
-          .projects-scrollbar::-webkit-scrollbar-track {
-            background: transparent;
-          }
-          
-          .projects-scrollbar::-webkit-scrollbar-thumb {
-            background-color: rgba(255, 255, 255, 0.3);
-            border-radius: 3px;
-          }
-          
-          .projects-scrollbar::-webkit-scrollbar-thumb:hover {
-            background-color: rgba(255, 255, 255, 0.5);
-          }
-
-          /* Custom scroll behavior */
-          .projects-scrollbar {
-            scroll-behavior: smooth;
-            transition: scroll-behavior 3s cubic-bezier(0.34, 1.56, 0.64, 1);
-          }
-
-          /* For Firefox */
-          .projects-scrollbar {
-            scroll-behavior: smooth;
-            scroll-timeline: smooth;
-            scroll-timeline-axis: block;
-            scroll-timeline-name: smooth;
-          }
-
-          /* Additional smooth scrolling for modern browsers */
-          @supports (scroll-behavior: smooth) {
-            .projects-scrollbar {
-              scroll-behavior: smooth;
-              transition: scroll-behavior 3s cubic-bezier(0.34, 1.56, 0.64, 1);
-            }
+          ::-webkit-scrollbar {
+            display: none !important;
+            width: 0 !important;
           }
         `}
       </style>
