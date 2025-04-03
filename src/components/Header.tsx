@@ -3,11 +3,9 @@ import { Link, useLocation } from 'react-router-dom';
 
 export const Header = () => {
   const location = useLocation();
-  const handleProjectsClick = () => {
-    //Implementation for transition would go here.  This is a placeholder.
-  };
+  
   return (
-    <header className="w-full text-white py-6 px-12 flex items-center fixed top-0 z-50 gap-16 bg-transparent">
+    <header className="w-full text-white py-6 px-12 flex items-center fixed top-0 z-50 bg-transparent">
       {/* Section 1 - Name */}
       <div className="flex-1 max-w-[180px]">
         <Link to="/" className="text-xl font-mono">
@@ -28,8 +26,37 @@ export const Header = () => {
         </Link>
       </div>
 
-      {/* Section 2 - Contact */}
-      <div className="flex-1 max-w-[200px] flex justify-center items-start"> {/* Added items-start */}
+      {/* Mobile Navigation (< 640px) - Using Projects page structure */}
+      <div className="flex-1 flex justify-end sm:hidden">
+        <nav className="text-center text-xs leading-5 mr-6" 
+             style={{ fontFamily: 'JetBrains Mono, monospace' }}
+        >
+          <Link 
+            to="/" 
+            className={`flex items-center ${location.pathname === '/' ? 'text-white' : 'text-gray-500 hover:text-white'}`}
+          >
+            Home
+            <span className={`inline-block ml-1 text-orange-500 ${location.pathname === '/' ? 'opacity-100' : 'opacity-0'}`}>:</span>
+          </Link>
+          <Link 
+            to="/projects"
+            className={`flex items-center mt-1 ${location.pathname === '/projects' ? 'text-white' : 'text-gray-500 hover:text-white'}`}
+          >
+            Projects
+            <span className={`inline-block ml-1 text-orange-500 ${location.pathname === '/projects' ? 'opacity-100' : 'opacity-0'}`}>:</span>
+          </Link>
+          <Link 
+            to="/services"
+            className={`flex items-center mt-1 ${location.pathname === '/services' ? 'text-white' : 'text-gray-500 hover:text-white'}`}
+          >
+            Services
+            <span className={`inline-block ml-1 text-orange-500 ${location.pathname === '/services' ? 'opacity-100' : 'opacity-0'}`}>:</span>
+          </Link>
+        </nav>
+      </div>
+
+      {/* Web View Content (≥ 640px) - Original structure */}
+      <div className="hidden sm:flex flex-1 max-w-[200px] justify-center items-start">
         <div className="flex flex-col">
           <div style={{ fontFamily: 'JetBrains Mono, monospace' }} className="text-xs text-gray-400">
             Get in touch
@@ -49,8 +76,8 @@ export const Header = () => {
         </div>
       </div>
 
-      <div className="flex-1 flex justify-end items-start gap-16 mr-24"> {/* Adjusted gap for closer proximity */}
-        {/* Section 3 - Skills */}
+      <div className="hidden sm:flex flex-1 justify-end items-start gap-16 mr-24">
+        {/* Skills Section */}
         <div className="text-xs leading-5" style={{ fontFamily: 'JetBrains Mono, monospace' }}>
           <div className="text-white">Product Strategy</div>
           <div className="text-white">AI Automation, Data Analytics,</div>
@@ -58,7 +85,7 @@ export const Header = () => {
           <div className="text-gray-400">Tableau, Prompting</div>
         </div>
 
-        {/* Section 4 - Navigation */}
+        {/* Web Navigation */}
         <nav className="text-center text-xs leading-5" style={{ fontFamily: 'JetBrains Mono, monospace' }}>
           <Link 
             to="/" 
@@ -68,15 +95,14 @@ export const Header = () => {
             <span className={`inline-block ml-1 text-orange-500 ${location.pathname === '/' ? 'opacity-100' : 'opacity-0'}`}>:</span>
           </Link>
           <Link 
-            to="/projects" 
-            onClick={handleProjectsClick}
+            to="/projects"
             className={`flex items-center mt-1 ${location.pathname === '/projects' ? 'text-white' : 'text-gray-500 hover:text-white'}`}
           >
             Projects
             <span className={`inline-block ml-1 text-orange-500 ${location.pathname === '/projects' ? 'opacity-100' : 'opacity-0'}`}>:</span>
           </Link>
           <Link 
-            to="/services" 
+            to="/services"
             className={`flex items-center mt-1 ${location.pathname === '/services' ? 'text-white' : 'text-gray-500 hover:text-white'}`}
           >
             Services

@@ -28,8 +28,20 @@ export default function Footer() {
           >
             Linkedin
           </a>
-          <div>Github</div>
-          <div>Instagram</div>
+          <a href="https://github.com/Virtubate"
+             target="_blank" 
+             rel="noopener noreferrer" 
+             className="block hover:text-white transition-colors"
+          >
+            Github
+          </a>
+          <a href="https://www.instagram.com/xpedition_._/"
+             target="_blank" 
+             rel="noopener noreferrer" 
+             className="block hover:text-white transition-colors"
+          >
+            Instagram
+          </a>
         </div>
         
         {/* Web View: Time (original) */}
@@ -53,16 +65,29 @@ export default function Footer() {
           >
             Linkedin
           </a>
-          <div>Github</div>
-          <div>Instagram</div>
+          <a href="https://github.com/Virtubate"
+             target="_blank" 
+             rel="noopener noreferrer" 
+             className="block hover:text-white transition-colors"
+          >
+            Github
+          </a>
+          <a href="https://www.instagram.com/xpedition_._/"
+             target="_blank" 
+             rel="noopener noreferrer" 
+             className="block hover:text-white transition-colors"
+          >
+            Instagram
+          </a>
         </div>
       </div>
 
-      {/* Section 3 - Get in touch (replacing Copyright) */}
-      <div className="flex-1 max-w-[100px] sm:max-w-[120px] flex justify-end">
-        <div className="flex flex-col">
+      {/* Section 3 - Mobile: Get in touch, Web: Copyright */}
+      <div className="flex-1 max-w-[100px] sm:max-w-[200px] flex sm:justify-start">
+        {/* Mobile View: Get in touch */}
+        <div className="flex sm:hidden flex-col">
           <div style={{ fontFamily: 'JetBrains Mono, monospace' }} 
-               className="text-[10px] sm:text-xs text-gray-400"
+               className="text-[10px] text-gray-400"
           >
             Get in touch
           </div>
@@ -76,10 +101,19 @@ export default function Footer() {
                textDecoration: 'underline',
                textTransform: 'lowercase'
              }}
-             className="sm:text-[14px] sm:leading-[17px]"
           >
             rmuth004@ucr.edu
           </a>
+        </div>
+
+        {/* Web View: Copyright - Increased container width */}
+        <div className="hidden sm:flex flex-col mr-24 min-w-[150px]">
+          <div className="bebas text-[10px] text-white text-left">
+            © 2025
+          </div>
+          <div className="bebas text-[10px] text-white text-left">
+            ALL RIGHTS RESERVED
+          </div>
         </div>
       </div>
     </footer>
