@@ -121,25 +121,25 @@ const Projects = () => {
                   <ProjectCard
                     title="AI-Powered Business Automation Agent"
                     description="Engineered an AI-driven workflow to automate customer support, lead qualification, and logistics for a solo-owner e-commerce business slashing operational inefficiency by 60%"
-                    image="/assets/projects/featured/ai-automation.png"
+                    image="/assets/projects/featured/fp_ai (1).png"
                     tags={["n8n", "Supabase", "Elevenlabs"]}
                   />
                   <ProjectCard
                     title="Predictive Market Adoption Model"
                     description="Developed a forecast tool leveraging Bass Model and Roger's Diffusion Theory to predict market adoption and CAC at different stage. Achieved 72% accuracy on a sample FMCG data"
-                    image="/assets/projects/featured/market-adoption.png"
+                    image="/assets/projects/featured/fp_fm (1).png"
                     tags={["Python", "Statistical Modelling", "GPT-4"]}
                   />
                   <ProjectCard
                     title="Hyperspace AI Analytics MVP"
                     description="Built an AI-based analytics platform consolidating e-commerce sales and marketing data for D2C brands. Proven to improve ad budget allocation by 30% across 3 pilots"
-                    image="/assets/projects/featured/analytics-mvp.png"
+                    image="/assets/projects/featured/fp_mvp (1).png"
                     tags={["Tableau", "D.E.R.N"]}
                   />
                   <ProjectCard
                     title="My Portfolio Website (Vibecoded)"
                     description="Created this responsive, animated portfolio you're viewing now in a week to showcase my work. Proof that I can innovate fast at the tech-business nexus."
-                    image="/assets/projects/featured/portfolio.png"
+                    image="/assets/projects/featured/fp-pw(1).png"
                     tags={["Cursor", "Three.js", "React.js"]}
                   />
                 </div>
@@ -191,37 +191,37 @@ const Projects = () => {
                   <ProjectCard
                     title="Agri-machinery Service App"
                     description="Designed a mobile app to connect farmers with agricultural machinery service providers and marketplaces, increasing rural income opportunities through technology accessibility."
-                    image="/assets/projects/design/agri-machinery.png"
+                    image="/assets/projects/design/dp_agri (2).png"
                     tags={["User Research", "Information Architecture", "Prototyping", "Usability Testing"]}
                   />
                   <ProjectCard
                     title="Urban Commute Solution"
                     description="Designed an integrated public transport solution that combines multiple modes of transit into one seamless user interface, reducing commute complexity"
-                    image="/assets/projects/design/urban-commute.png"
+                    image="/assets/projects/design/dp-uc (1).png"
                     tags={["UX Design", "UI Design", "User Research"]}
                   />
                   <ProjectCard
                     title="Women Entrepreneur Platform"
                     description="Designed an educational and networking platform specifically for women entrepreneurs, featuring mentorship matching and funding resources"
-                    image="/assets/projects/design/women-platform.png"
+                    image="/assets/projects/design/dp-we (1).png"
                     tags={["User Interviews", "Interaction Design", "Design System Creation"]}
                   />
                   <ProjectCard
                     title="Inventory Management System"
                     description="Designed an intuitive interface for warehouse management with real-time tracking, predictive inventory suggestions, and customizable reporting"
-                    image="/assets/projects/design/inventory.png"
+                    image="/assets/projects/design/dp_im (1).png"
                     tags={["Data Visualization", "User Testing", "System Design"]}
                   />
                   <ProjectCard
                     title="Water Works Feedback System"
                     description="Created a user-friendly feedback system for municipal water services, enabling citizens to report issues and track resolution processes."
-                    image="/assets/projects/design/water-works.png"
+                    image="/assets/projects/design/dp_wm (1).png"
                     tags={["Service Design", "Community Engagement", "Accessibility"]}
                   />
                   <ProjectCard
                     title="Drone Service Platform"
                     description="Designed a platform connecting drone operators with farmers for crop monitoring, spraying, and analysis services through an intuitive booking interface."
-                    image="/assets/projects/design/drone-service.png"
+                    image="/assets/projects/design/dp_drone (1).png"
                     tags={["Interaction Design", "User Research", "Prototyping"]}
                   />
                 </div>
