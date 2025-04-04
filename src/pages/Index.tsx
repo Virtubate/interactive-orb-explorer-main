@@ -4,58 +4,27 @@ import OrbScene from '@/components/OrbScene';
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WaveAnimation from "@/components/WaveAnimation";
-import LoaderAnimation from "@/components/LoaderAnimation";
 import { useTransition } from '../contexts/TransitionContext';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { transitionManager } from '../transitions/TransitionManager';
 
 const Index = () => {
-  const [showContent, setShowContent] = useState(false);
-  const [showLoader, setShowLoader] = useState(true);
-  const [isSlowLoad, setIsSlowLoad] = useState(false);
+  const [showContent, setShowContent] = useState(true);
   const { initiateTransition, currentScene } = useTransition();
   const navigate = useNavigate();
   const location = useLocation();
   const [fadeProgress, setFadeProgress] = useState(0);
   const touchStartRef = useRef(0);
-  const loaderTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-
-  // Clear any existing timeouts when component unmounts
-  useEffect(() => {
-    return () => {
-      if (loaderTimeoutRef.current) {
-        clearTimeout(loaderTimeoutRef.current);
-      }
-    };
-  }, []);
+  const isMobile = window.innerWidth < 640;
 
   useEffect(() => {
     // Check if this is internal navigation
     const isInternalNavigation = location.state?.isInternalNavigation;
     
-    if (isInternalNavigation) {
-      setShowContent(true);
-      setShowLoader(false);
+    if (!isInternalNavigation) {
+      // For fresh loads and refreshes, no need to do anything since showContent is true by default
       return;
     }
-
-    // For fresh loads and refreshes
-    setShowContent(false);
-    setShowLoader(true);
-
-    // Set up slow load detection
-    const slowLoadTimeout = setTimeout(() => {
-      if (!showContent) {
-        setIsSlowLoad(true);
-      }
-    }, 1000);
-
-    return () => {
-      clearTimeout(slowLoadTimeout);
-      if (loaderTimeoutRef.current) {
-        clearTimeout(loaderTimeoutRef.current);
-      }
-    };
   }, [location]);
 
   // Touch handlers for mobile only
@@ -90,19 +59,6 @@ const Index = () => {
     };
   }, []);
 
-  const handleLoaderComplete = () => {
-    // Clear any existing timeout
-    if (loaderTimeoutRef.current) {
-      clearTimeout(loaderTimeoutRef.current);
-    }
-
-    // Set new timeout
-    loaderTimeoutRef.current = setTimeout(() => {
-      setShowLoader(false);
-      setShowContent(true);
-    }, 500);
-  };
-
   const handleProjectsClick = async (e: React.MouseEvent) => {
     e.preventDefault();
     
@@ -119,16 +75,15 @@ const Index = () => {
 
   return (
     <div className="relative w-full h-screen bg-black overflow-hidden">
-      {showLoader && (
-        <LoaderAnimation onAnimationComplete={handleLoaderComplete} />
-      )}
-
       {/* Fixed Wave Animation */}
       <motion.div 
         className="fixed inset-0 z-10 pointer-events-none"
         initial={{ opacity: 0 }}
         animate={{ opacity: showContent ? 1 : 0 }}
-        transition={{ duration: 1, delay: 0.2 }}
+        transition={{ 
+          duration: isMobile ? 1 : 1.2,
+          delay: isMobile ? 0.2 : 0
+        }}
       >
         <WaveAnimation />
       </motion.div>
@@ -140,7 +95,10 @@ const Index = () => {
           className="fixed top-0 left-0 right-0 z-50 sm:relative sm:z-auto"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: showContent ? 1 : 0, y: showContent ? 0 : -20 }}
-          transition={{ duration: 0.4, delay: 0.5 }}
+          transition={{ 
+            duration: isMobile ? 0.4 : 0.6,
+            delay: isMobile ? 0.5 : 1.4
+          }}
         >
           <Header />
         </motion.div>
@@ -166,9 +124,12 @@ const Index = () => {
               sm:text-left
               md:left-[8%]"
             style={{ 
-              opacity: window.innerWidth < 640 ? 1 - fadeProgress : 1,
-              transition: 'opacity 0.2s ease'
+              opacity: isMobile ? (1 - fadeProgress) : 1,
+              transition: isMobile ? 'opacity 0.2s ease' : 'none'
             }}
+            initial={isMobile ? {} : { opacity: 0, y: 20 }}
+            animate={isMobile ? {} : { opacity: showContent ? 1 : 0, y: showContent ? 0 : 20 }}
+            transition={isMobile ? {} : { duration: 0.6, delay: 2.0 }}
           >
             <h1 className="font-['Handjet'] font-thin 
                           text-[38px]
@@ -208,9 +169,12 @@ const Index = () => {
               2xl:h-[66.5vh]
               orb-shadow"
             style={{ 
-              opacity: window.innerWidth < 640 ? 1 - fadeProgress : 1,
-              transition: 'opacity 0.2s ease'
+              opacity: isMobile ? (1 - fadeProgress) : 1,
+              transition: isMobile ? 'opacity 0.2s ease' : 'none'
             }}
+            initial={isMobile ? {} : { opacity: 0, scale: 0.95 }}
+            animate={isMobile ? {} : { opacity: showContent ? 1 : 0, scale: showContent ? 1 : 0.95 }}
+            transition={isMobile ? {} : { duration: 1.2, delay: 0.2 }}
           >
             <OrbScene className="w-full h-full" />
           </motion.div>
@@ -229,8 +193,8 @@ const Index = () => {
             /* Hide in tablet/web */
             sm:hidden"
             style={{ 
-              opacity: window.innerWidth < 640 ? 1 - fadeProgress : 1,
-              transition: 'opacity 0.2s ease'
+              opacity: isMobile ? 1 - fadeProgress : 1,
+              transition: isMobile ? 'opacity 0.2s ease' : 'none'
             }}
           >
             {/* Thin Upward Arrow */}
@@ -288,11 +252,14 @@ const Index = () => {
               /* Web view position - unchanged */
               md:right-[8%]"
             style={{ 
-              opacity: window.innerWidth < 640 ? fadeProgress > 0.3 ? (fadeProgress - 0.3) * 1.4 : 0 : 1,
-              transition: 'opacity 0.3s ease',
-              pointerEvents: window.innerWidth < 640 && fadeProgress < 0.5 ? 'none' : 'auto',
-              zIndex: window.innerWidth < 640 ? (fadeProgress > 0.5 ? 20 : 0) : 'auto'
+              opacity: isMobile ? (fadeProgress > 0.3 ? (fadeProgress - 0.3) * 1.4 : 0) : 1,
+              transition: isMobile ? 'opacity 0.3s ease' : 'none',
+              pointerEvents: isMobile && fadeProgress < 0.5 ? 'none' : 'auto',
+              zIndex: isMobile ? (fadeProgress > 0.5 ? 20 : 0) : 'auto'
             }}
+            initial={isMobile ? {} : { opacity: 0, y: 20 }}
+            animate={isMobile ? {} : { opacity: showContent ? 1 : 0, y: showContent ? 0 : 20 }}
+            transition={isMobile ? {} : { duration: 0.6, delay: 2.0 }}
           >
             <div className="flex flex-col gap-3 sm:gap-4 text-center">
               <p className="font-['JetBrains_Mono'] 
@@ -325,7 +292,10 @@ const Index = () => {
           className="fixed bottom-0 left-0 right-0 z-50 sm:relative sm:z-auto"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: showContent ? 1 : 0, y: showContent ? 0 : 20 }}
-          transition={{ duration: 0.4, delay: 0.5 }}
+          transition={{ 
+            duration: isMobile ? 0.4 : 0.6,
+            delay: isMobile ? 0.5 : 1.4
+          }}
         >
           <Footer />
         </motion.div>
