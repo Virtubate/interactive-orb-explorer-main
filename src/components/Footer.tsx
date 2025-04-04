@@ -35,12 +35,12 @@ export default function Footer() {
           >
             Github
           </a>
-          <a href="https://www.instagram.com/xpedition_._/"
+          <a href="https://medium.com/@rmuth004"
              target="_blank" 
              rel="noopener noreferrer" 
              className="block hover:text-white transition-colors"
           >
-            Instagram
+            Medium
           </a>
         </div>
         
@@ -72,12 +72,12 @@ export default function Footer() {
           >
             Github
           </a>
-          <a href="https://www.instagram.com/xpedition_._/"
+          <a href="https://medium.com/@rmuth004"
              target="_blank" 
              rel="noopener noreferrer" 
              className="block hover:text-white transition-colors"
           >
-            Instagram
+            Medium
           </a>
         </div>
       </div>

@@ -11,52 +11,50 @@ import { transitionManager } from '../transitions/TransitionManager';
 
 const Index = () => {
   const [showContent, setShowContent] = useState(false);
-  const [showLoader, setShowLoader] = useState(false);
+  const [showLoader, setShowLoader] = useState(true);
   const [isSlowLoad, setIsSlowLoad] = useState(false);
   const { initiateTransition, currentScene } = useTransition();
   const navigate = useNavigate();
   const location = useLocation();
   const [fadeProgress, setFadeProgress] = useState(0);
   const touchStartRef = useRef(0);
+  const loaderTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Clear any existing timeouts when component unmounts
+  useEffect(() => {
+    return () => {
+      if (loaderTimeoutRef.current) {
+        clearTimeout(loaderTimeoutRef.current);
+      }
+    };
+  }, []);
 
   useEffect(() => {
-    // Check if this is first visit
-    const isFirstVisit = !sessionStorage.getItem('hasVisited');
-    
-    // Check if this is a page refresh using the newer Performance API
-    const navigationEntries = performance.getEntriesByType('navigation');
-    const isRefresh = navigationEntries.length > 0 && 
-      (navigationEntries[0] as PerformanceNavigationTiming).type === 'reload';
-
-    // Check if this is internal navigation (from state)
+    // Check if this is internal navigation
     const isInternalNavigation = location.state?.isInternalNavigation;
     
-    // If it's internal navigation, show content immediately
     if (isInternalNavigation) {
       setShowContent(true);
+      setShowLoader(false);
       return;
     }
 
+    // For fresh loads and refreshes
+    setShowContent(false);
+    setShowLoader(true);
+
     // Set up slow load detection
     const slowLoadTimeout = setTimeout(() => {
-      if (!showContent && !isInternalNavigation) {
+      if (!showContent) {
         setIsSlowLoad(true);
-        setShowLoader(true);
       }
     }, 1000);
 
-    // Show loader only on first visit or actual refresh
-    if (isFirstVisit || isRefresh) {
-      setShowLoader(true);
-      // Mark that user has visited
-      sessionStorage.setItem('hasVisited', 'true');
-    } else {
-      // For returning visits, show content immediately
-      setShowContent(true);
-    }
-
     return () => {
       clearTimeout(slowLoadTimeout);
+      if (loaderTimeoutRef.current) {
+        clearTimeout(loaderTimeoutRef.current);
+      }
     };
   }, [location]);
 
@@ -93,7 +91,14 @@ const Index = () => {
   }, []);
 
   const handleLoaderComplete = () => {
-    setTimeout(() => {
+    // Clear any existing timeout
+    if (loaderTimeoutRef.current) {
+      clearTimeout(loaderTimeoutRef.current);
+    }
+
+    // Set new timeout
+    loaderTimeoutRef.current = setTimeout(() => {
+      setShowLoader(false);
       setShowContent(true);
     }, 500);
   };
@@ -114,7 +119,7 @@ const Index = () => {
 
   return (
     <div className="relative w-full h-screen bg-black overflow-hidden">
-      {showLoader && !showContent && !location.state?.isInternalNavigation && (
+      {showLoader && (
         <LoaderAnimation onAnimationComplete={handleLoaderComplete} />
       )}
 
@@ -135,7 +140,7 @@ const Index = () => {
           className="fixed top-0 left-0 right-0 z-50 sm:relative sm:z-auto"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: showContent ? 1 : 0, y: showContent ? 0 : -20 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
+          transition={{ duration: 0.4, delay: 0.5 }}
         >
           <Header />
         </motion.div>
@@ -320,7 +325,7 @@ const Index = () => {
           className="fixed bottom-0 left-0 right-0 z-50 sm:relative sm:z-auto"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: showContent ? 1 : 0, y: showContent ? 0 : 20 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
+          transition={{ duration: 0.4, delay: 0.5 }}
         >
           <Footer />
         </motion.div>

@@ -9,6 +9,7 @@ interface LoaderAnimationProps {
 const LoaderAnimation: React.FC<LoaderAnimationProps> = ({ onAnimationComplete }) => {
   const circleRef = useRef<SVGCircleElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const animationRef = useRef<GSAPTimeline | null>(null);
 
   useEffect(() => {
     if (!circleRef.current || !containerRef.current) return;
@@ -29,11 +30,29 @@ const LoaderAnimation: React.FC<LoaderAnimationProps> = ({ onAnimationComplete }
     circle.style.strokeDasharray = `${circumference} ${circumference}`;
     circle.style.strokeDashoffset = `${circumference}`;
 
+    // Reset any existing animation
+    if (animationRef.current) {
+      animationRef.current.kill();
+    }
+
     // Create the animation sequence
     const tl = gsap.timeline({
       onComplete: () => {
         onAnimationComplete();
       }
+    });
+
+    // Store the timeline reference
+    animationRef.current = tl;
+
+    // Reset initial state
+    gsap.set(circle, {
+      strokeDashoffset: circumference,
+      filter: "none",
+      opacity: 1
+    });
+    gsap.set(containerRef.current, {
+      opacity: 1
     });
 
     // Draw the circle with initial glow (1s)
@@ -60,12 +79,18 @@ const LoaderAnimation: React.FC<LoaderAnimationProps> = ({ onAnimationComplete }
       ease: "power2.inOut"
     });
 
+    // Cleanup function
+    return () => {
+      if (animationRef.current) {
+        animationRef.current.kill();
+      }
+    };
   }, [onAnimationComplete]);
 
   return (
     <div 
       ref={containerRef}
-      className="fixed inset-0 z-0 flex items-center justify-center m-auto pointer-events-none overflow-hidden rounded-full"
+      className="fixed inset-0 z-50 flex items-center justify-center m-auto pointer-events-none overflow-hidden rounded-full"
       style={{
         background: 'transparent'
       }}
@@ -98,9 +123,9 @@ const LoaderAnimation: React.FC<LoaderAnimationProps> = ({ onAnimationComplete }
             cy="50"
             r="45"
             fill="none"
-            stroke="rgba(255, 255, 255, 0.9)"
-            strokeWidth="0.25"
-            transform="rotate(-90 50 50)"
+            stroke="white"
+            strokeWidth="1"
+            strokeLinecap="round"
             style={{
               filter: 'url(#glow)'
             }}
