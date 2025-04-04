@@ -193,8 +193,14 @@ const Index = () => {
               sm:w-[383px]
               sm:h-[383px]
               sm:mx-0
-              md:w-[66.5vh]
-              md:h-[66.5vh]
+
+              /* Custom size reduction for 1024px-1369px */
+              lg:w-[372px]
+              lg:h-[372px]
+
+              /* Web view (≥1370px) - unchanged */
+              2xl:w-[66.5vh]
+              2xl:h-[66.5vh]
               orb-shadow"
             style={{ 
               opacity: window.innerWidth < 640 ? 1 - fadeProgress : 1,
@@ -272,33 +278,34 @@ const Index = () => {
               sm:left-auto
               sm:absolute 
               sm:right-[6%]
-              sm:text-left
+              sm:text-center
+
+              /* Web view position - unchanged */
               md:right-[8%]"
             style={{ 
-              opacity: window.innerWidth < 640 ? 
-                (fadeProgress > 0.3 ? (fadeProgress - 0.3) * 1.4 : 0) : 1,
+              opacity: window.innerWidth < 640 ? fadeProgress > 0.3 ? (fadeProgress - 0.3) * 1.4 : 0 : 1,
               transition: 'opacity 0.3s ease',
               pointerEvents: window.innerWidth < 640 && fadeProgress < 0.5 ? 'none' : 'auto',
               zIndex: window.innerWidth < 640 ? (fadeProgress > 0.5 ? 20 : 0) : 'auto'
             }}
           >
-            <div className="flex flex-col gap-3 sm:gap-4 text-center sm:text-left">
+            <div className="flex flex-col gap-3 sm:gap-4 text-center">
               <p className="font-['JetBrains_Mono'] 
-                          text-[16px]
+                          text-[12px]
                           sm:text-[11px]
                           md:text-[12px]
                           leading-relaxed text-gray-400">
                 Hi, I'm Rahul Muthavarapu, an <span className="text-white">automation expert</span> and <span className="text-white">UI/UX designer</span>, currently a Dean's Scholar MBA candidate at UC Riverside.
               </p>
               <p className="font-['JetBrains_Mono'] 
-                          text-[16px]
+                          text-[12px]
                           sm:text-[11px]
                           md:text-[12px]
                           leading-relaxed text-gray-400">
                 Three years ago, I started as a Program Associate at an Indian business incubator, collaborating with startup founders on product innovation. That experience drove me to create tech solutions that are both sustainable and impactful.
               </p>
               <p className="font-['JetBrains_Mono'] 
-                          text-[16px]
+                          text-[12px]
                           sm:text-[11px]
                           md:text-[12px]
                           leading-relaxed text-gray-400">

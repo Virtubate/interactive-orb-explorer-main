@@ -96,7 +96,7 @@ const WaveAnimation: React.FC = () => {
         const x = originalPositions[index];
         const z = originalPositions[index + 2];
         
-        // Create multiple wave patterns
+        // Create multiple wave patterns with original speed multipliers
         const wave1 = Math.sin(x * 0.5 + frame) * Math.cos(z * 0.5 + frame) * 0.5;
         const wave2 = Math.sin(x * 0.3 - frame * 0.7) * Math.cos(z * 0.3 + frame * 0.7) * 0.3;
         const wave3 = Math.sin(Math.sqrt(x * x + z * z) * 0.5 - frame) * 0.2;
