@@ -26,15 +26,15 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, image, ta
     </div>
     <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-60 transition-opacity duration-300" />
     <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-3 sm:p-6 flex flex-col justify-end">
-      <h3 className="text-white font-['Handjet'] text-[0.9rem] sm:text-[1.2rem] mb-1 sm:mb-2">{title}</h3>
+      <h3 className="text-white font-['Handjet'] text-[0.8rem] sm:text-[1.2rem] mb-1 sm:mb-2">{title}</h3>
       <p className="hidden sm:block text-gray-300 font-['JetBrains_Mono'] text-[0.65rem] leading-relaxed mb-3">
         {description}
       </p>
-      <div className="flex flex-wrap gap-1 sm:gap-2">
+      <div className="flex sm:flex flex-wrap gap-1.5 sm:gap-2">
         {tags.map((tag, index) => (
           <span
             key={index}
-            className="text-[0.5rem] sm:text-xs font-['JetBrains_Mono'] px-1.5 sm:px-2 py-0.5 sm:py-1 bg-white/5 text-white/90 rounded border border-white/10"
+            className={`text-[0.55rem] sm:text-xs font-['JetBrains_Mono'] px-1.5 sm:px-2 py-0.5 sm:py-1 bg-white/5 text-white/90 rounded border border-white/10 ${index >= 2 ? 'hidden sm:inline-block' : ''}`}
           >
             {tag}
           </span>
@@ -121,25 +121,25 @@ const Projects = () => {
                   <ProjectCard
                     title="AI-Powered Business Automation Agent"
                     description="Engineered an AI-driven workflow to automate customer support, lead qualification, and logistics for a solo-owner e-commerce business slashing operational inefficiency by 60%"
-                    image="/assets/projects/featured/fp_ai (1).png"
+                    image="/assets/projects/featured/fp1-ai (1).png"
                     tags={["n8n", "Supabase", "Elevenlabs"]}
                   />
                   <ProjectCard
                     title="Predictive Market Adoption Model"
                     description="Developed a forecast tool leveraging Bass Model and Roger's Diffusion Theory to predict market adoption and CAC at different stage. Achieved 72% accuracy on a sample FMCG data"
-                    image="/assets/projects/featured/fp_fm (1).png"
+                    image="/assets/projects/featured/fp1_pm-1 (1).png"
                     tags={["Python", "Statistical Modelling", "GPT-4"]}
                   />
                   <ProjectCard
                     title="Hyperspace AI Analytics MVP"
                     description="Built an AI-based analytics platform consolidating e-commerce sales and marketing data for D2C brands. Proven to improve ad budget allocation by 30% across 3 pilots"
-                    image="/assets/projects/featured/fp_mvp (1).png"
+                    image="/assets/projects/featured/fp1-mvp (1).png"
                     tags={["Tableau", "D.E.R.N"]}
                   />
                   <ProjectCard
                     title="My Portfolio Website (Vibecoded)"
                     description="Created this responsive, animated portfolio you're viewing now in a week to showcase my work. Proof that I can innovate fast at the tech-business nexus."
-                    image="/assets/projects/featured/fp-pw(1).png"
+                    image="/assets/projects/featured/fp1-portfolio (1).png"
                     tags={["Cursor", "Three.js", "React.js"]}
                   />
                 </div>
@@ -191,37 +191,37 @@ const Projects = () => {
                   <ProjectCard
                     title="Agri-machinery Service App"
                     description="Designed a mobile app to connect farmers with agricultural machinery service providers and marketplaces, increasing rural income opportunities through technology accessibility."
-                    image="/assets/projects/design/dp_agri (2).png"
+                    image="/assets/projects/design/dp1-agri (1).png"
                     tags={["User Research", "Information Architecture", "Prototyping", "Usability Testing"]}
                   />
                   <ProjectCard
                     title="Urban Commute Solution"
                     description="Designed an integrated public transport solution that combines multiple modes of transit into one seamless user interface, reducing commute complexity"
-                    image="/assets/projects/design/dp-uc (1).png"
+                    image="/assets/projects/design/dp1-uc (1).png"
                     tags={["UX Design", "UI Design", "User Research"]}
                   />
                   <ProjectCard
                     title="Women Entrepreneur Platform"
                     description="Designed an educational and networking platform specifically for women entrepreneurs, featuring mentorship matching and funding resources"
-                    image="/assets/projects/design/dp-we (1).png"
+                    image="/assets/projects/design/dp1-wm (1).png"
                     tags={["User Interviews", "Interaction Design", "Design System Creation"]}
                   />
                   <ProjectCard
                     title="Inventory Management System"
                     description="Designed an intuitive interface for warehouse management with real-time tracking, predictive inventory suggestions, and customizable reporting"
-                    image="/assets/projects/design/dp_im (1).png"
+                    image="/assets/projects/design/dp1-im (1).png"
                     tags={["Data Visualization", "User Testing", "System Design"]}
                   />
                   <ProjectCard
                     title="Water Works Feedback System"
                     description="Created a user-friendly feedback system for municipal water services, enabling citizens to report issues and track resolution processes."
-                    image="/assets/projects/design/dp_wm (1).png"
+                    image="/assets/projects/design/dp1-water (1).png"
                     tags={["Service Design", "Community Engagement", "Accessibility"]}
                   />
                   <ProjectCard
                     title="Drone Service Platform"
                     description="Designed a platform connecting drone operators with farmers for crop monitoring, spraying, and analysis services through an intuitive booking interface."
-                    image="/assets/projects/design/dp_drone (1).png"
+                    image="/assets/projects/design/dp1-drone (1).png"
                     tags={["Interaction Design", "User Research", "Prototyping"]}
                   />
                 </div>
