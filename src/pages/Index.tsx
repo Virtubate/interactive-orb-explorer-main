@@ -150,23 +150,23 @@ const Index = () => {
               left-[50%]
               -translate-x-1/2
               -translate-y-1/2
-              w-[270px]
-              h-[270px]
+              w-[243px]
+              h-[243px]
               
               /* Tablet & Web rules - unchanged */
               sm:static
               sm:transform-none
-              sm:w-[306px]
-              sm:h-[306px]
+              sm:w-[275px]
+              sm:h-[275px]
               sm:mx-0
 
               /* Custom size reduction for 1024px-1369px */
-              lg:w-[298px]
-              lg:h-[298px]
+              lg:w-[268px]
+              lg:h-[268px]
 
               /* Web view (≥1370px) - unchanged */
-              2xl:w-[53.2vh]
-              2xl:h-[53.2vh]
+              2xl:w-[47.9vh]
+              2xl:h-[47.9vh]
               orb-shadow"
             style={{ 
               opacity: isMobile ? (1 - fadeProgress) : 1,
