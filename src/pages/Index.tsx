@@ -267,7 +267,7 @@ const Index = () => {
                           sm:text-[11px]
                           md:text-[12px]
                           leading-relaxed text-gray-400">
-                Hi, I'm Rahul Muthavarapu, <span className="text-white">UI/UX designer by craft, <span className="text-white">automation expert by obsession, and a Dean's Scholar MBA candidate at UC Riverside.
+                I'm Rahul Muthavarapu, <span className="text-white">UI/UX designer</span> by craft, <span className="text-white">automation expert</span> by obsession, and a Dean's Scholar MBA candidate at UC Riverside.
               </p>
               <p className="font-['JetBrains_Mono'] 
                           text-[12px]
@@ -281,7 +281,7 @@ const Index = () => {
                           sm:text-[11px]
                           md:text-[12px]
                           leading-relaxed text-gray-400">
-                I've always chased how products adapt to shifting business needs, so when AI took off, I dove straight in. The proof? This site was built entirely through "<span className="text-white">Vibecoding". Not one line of code, all vision.
+                I've always chased how products adapt to shifting business needs, so when AI took off, I dove straight in. The proof? This site was built entirely through <span className="text-white">Vibecoding</span>. Not one line of code, all vision.
               </p>
             </div>
           </motion.div>
