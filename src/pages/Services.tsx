@@ -58,12 +58,12 @@ const Services = () => {
                 {/* Logos container */}
                 <div className="flex items-center gap-4 justify-start">
                   <img
-                    src="/assets/logos/figma-1-logo-svgrepo-com.svg"
+                    src={`${import.meta.env.BASE_URL}assets/logos/figma-1-logo-svgrepo-com.svg`}
                     alt="Figma Logo"
                     className="w-6 h-6 md:w-8 md:h-8 opacity-70 hover:opacity-100 transition-opacity"
                   />
                   <img
-                    src="/assets/logos/3js.png"
+                    src={`${import.meta.env.BASE_URL}assets/logos/3js.png`}
                     alt="Three.js Logo"
                     className="w-[31px] h-[31px] md:w-[58px] md:h-[58px] opacity-70 hover:opacity-100 transition-opacity"
                   />
@@ -184,27 +184,27 @@ const Services = () => {
                 {/* Logos container */}
                 <div className="flex items-center gap-4 justify-start">
                   <img
-                    src="/assets/logos/Replit_Logo_Symbol.svg"
+                    src={`${import.meta.env.BASE_URL}assets/logos/Replit_Logo_Symbol.svg`}
                     alt="Replit Logo"
                     className="w-[31px] h-[31px] md:w-[58px] md:h-[58px] opacity-70 hover:opacity-100 transition-opacity"
                   />
                   <img
-                    src="/assets/logos/shopify-logo-svgrepo-com.svg"
+                    src={`${import.meta.env.BASE_URL}assets/logos/shopify-logo-svgrepo-com.svg`}
                     alt="Shopify Logo"
                     className="w-6 h-6 md:w-8 md:h-8 opacity-70 hover:opacity-100 transition-opacity"
                   />
                   <img
-                    src="/assets/logos/tableau-software.svg"
+                    src={`${import.meta.env.BASE_URL}assets/logos/tableau-software.svg`}
                     alt="Tableau Logo"
                     className="w-6 h-6 md:w-8 md:h-8 opacity-70 hover:opacity-100 transition-opacity"
                   />
                   <img
-                    src="/assets/logos/supabase-logo-wordmark--dark.svg"
+                    src={`${import.meta.env.BASE_URL}assets/logos/supabase-logo-wordmark--dark.svg`}
                     alt="Supabase Logo"
                     className="w-[48px] h-[48px] md:w-[90px] md:h-[90px] opacity-70 hover:opacity-100 transition-opacity"
                   />
                   <img
-                    src="/assets/logos/N8N.Io_idQ-KxEpHW_1.svg"
+                    src={`${import.meta.env.BASE_URL}assets/logos/N8N.Io_idQ-KxEpHW_1.svg`}
                     alt="n8n Logo"
                     className="w-[37px] h-[37px] md:w-[70px] md:h-[70px] opacity-70 hover:opacity-100 transition-opacity"
                   />
