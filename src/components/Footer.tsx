@@ -35,13 +35,6 @@ export default function Footer() {
           >
             Github
           </a>
-          <a href="https://medium.com/@rmuth004"
-             target="_blank" 
-             rel="noopener noreferrer" 
-             className="block hover:text-white transition-colors"
-          >
-            Medium
-          </a>
         </div>
         
         {/* Web View: Time (original) */}
@@ -71,13 +64,6 @@ export default function Footer() {
              className="block hover:text-white transition-colors"
           >
             Github
-          </a>
-          <a href="https://medium.com/@rmuth004"
-             target="_blank" 
-             rel="noopener noreferrer" 
-             className="block hover:text-white transition-colors"
-          >
-            Medium
           </a>
         </div>
       </div>
