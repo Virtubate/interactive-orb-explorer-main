@@ -267,21 +267,21 @@ const Index = () => {
                           sm:text-[11px]
                           md:text-[12px]
                           leading-relaxed text-gray-400">
-                Hi, I'm Rahul Muthavarapu, an <span className="text-white">automation expert</span> and <span className="text-white">UI/UX designer</span>, currently a Dean's Scholar MBA candidate at UC Riverside.
+                Hi, I'm Rahul Muthavarapu, <span className="text-white">UI/UX designer by craft, <span className="text-white">automation expert by obsession, and a Dean's Scholar MBA candidate at UC Riverside.
               </p>
               <p className="font-['JetBrains_Mono'] 
                           text-[12px]
                           sm:text-[11px]
                           md:text-[12px]
                           leading-relaxed text-gray-400">
-                Three years ago, I started as a Program Associate at an Indian business incubator, collaborating with startup founders on product innovation. That experience drove me to create tech solutions that are both sustainable and impactful.
+                I started out at a startup incubator, shipping products alongside founders. Now I wrangle the big-man tools, enterprise ERPs, where my routine is turning gnarly finance workflows like month-end reconciliation and budget-vs-actuals tracking into AI agents that just handle it.
               </p>
               <p className="font-['JetBrains_Mono'] 
                           text-[12px]
                           sm:text-[11px]
                           md:text-[12px]
                           leading-relaxed text-gray-400">
-                I'm always exploring how products meet evolving business needs, and when AI took off, I dove in to build automation tools that boost operational efficiency. By the way, this website came to life through "<span className="text-white">Vibecoding</span>" and I never wrote a single line of code!
+                I've always chased how products adapt to shifting business needs, so when AI took off, I dove straight in. The proof? This site was built entirely through "<span className="text-white">Vibecoding". Not one line of code, all vision.
               </p>
             </div>
           </motion.div>
