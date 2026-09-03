@@ -20,7 +20,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <TransitionProvider>
-          <BrowserRouter>
+          <BrowserRouter basename={import.meta.env.BASE_URL}>
             <Suspense fallback={<div>Loading...</div>}>
               <Routes>
                 <Route path="/" element={<Index />} />
