@@ -8,7 +8,7 @@
       // Redirects deep links (e.g. /projects) back to index.html so the
       // client-side router can handle them, preserving the path & query.
       // pathSegmentsToKeep = 1 keeps the repo-name segment in the URL.
-      var pathSegmentsToKeep = 1;
+      var pathSegmentsToKeep = 0;
       var l = window.location;
       l.replace(
         l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
